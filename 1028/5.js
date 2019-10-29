@@ -2,7 +2,7 @@
  * @Description: 实现es继承的四种方法
  * @Author: Do not edit
  * @Date: 2019-10-28 15:29:56
- * @LastEditTime: 2019-10-28 16:28:13
+ * @LastEditTime: 2019-10-29 15:49:05
  * @LastEditors: winki
  */
 
@@ -28,6 +28,7 @@ function Animal(species){
 Animal.prototype.func = function() {
   console.log('Animal')  
 };
+Animal.prototype.hey = 'hey,good dones!!!';
 
 function Cat() {}
 
@@ -36,13 +37,14 @@ Cat.prototype.func = function() {
     console.log('Cat')
 }
 
-Cat.prototype = new Animal();//将Cat的原型指向Animal
+Cat.prototype = new Animal();//将Cat的原型对象指向Animal
 Cat.prototype.constructor = Cat;//恢复
 
 /* 测试代码 */
 var cat = new Cat();
-cat.func();//Animal;
-console.log(cat.species);//undefined
+cat.func();//Animal;解释：Animal.func 跟 Cat.fun是同名函数，当指向new Animal()时，方法被重写。
+console.log(cat.species);//undefined 由于species是Animal构造函数上的，不是Animal原型对象上的，所以无法被继承
+console.log(cat.hey);//hey,good dones!!!
 
 // 方法3：组合继承
 function Animal(species) {
