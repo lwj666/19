@@ -2,10 +2,9 @@
  * @Description: 实现es继承的四种方法
  * @Author: Do not edit
  * @Date: 2019-10-28 15:29:56
- * @LastEditTime: 2019-10-29 15:49:05
+ * @LastEditTime: 2019-10-29 17:36:58
  * @LastEditors: winki
  */
-
 //  方法1：绑定构造函数.缺点：不能继承父类原型/属性
 function Animal() {
     this.species = '动物';
@@ -45,6 +44,7 @@ var cat = new Cat();
 cat.func();//Animal;解释：Animal.func 跟 Cat.fun是同名函数，当指向new Animal()时，方法被重写。
 console.log(cat.species);//undefined 由于species是Animal构造函数上的，不是Animal原型对象上的，所以无法被继承
 console.log(cat.hey);//hey,good dones!!!
+
 
 // 方法3：组合继承
 function Animal(species) {
