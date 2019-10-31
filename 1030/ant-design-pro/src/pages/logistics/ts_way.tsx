@@ -3,16 +3,17 @@ import { Table, Divider, Tag,Button } from 'antd';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 
 const columns = [
+   
     {
       title: '编号',
-      dataIndex: 'name',
-      key: 'name',
-      render: text => <a>{text}</a>,
-    },
-    {
-      title: '中文名',
       dataIndex: 'age',
       key: 'age',
+    },
+    {
+        title: '中文名',
+        dataIndex: 'name',
+        key: 'name',
+        render: (text: React.ReactNode) => <a>{text}</a>,
     },
     {
       title: '英文名',
@@ -23,9 +24,9 @@ const columns = [
       title: '备注',
       key: 'tags',
       dataIndex: 'tags',
-      render: tags => (
+      render: (tags: { map: (arg0: (tag: any) => JSX.Element) => React.ReactNode; }) => (
         <span>
-          {tags.map(tag => {
+          {tags.map((tag: string | number | undefined) => {
             let color = tag.length > 5 ? 'geekblue' : 'green';
             if (tag === 'loser') {
               color = 'volcano';
@@ -42,7 +43,7 @@ const columns = [
     {
       title: 'Action',
       key: 'action',
-      render: (text, record) => (
+      render: (text: any, record: { name: React.ReactNode; }) => (
         <span>
           <a>Invite {record.name}</a>
           <Divider type="vertical" />
