@@ -1,0 +1,60 @@
+<!--
+ * @Description: 加载中动画
+ * @Author: Do not edit
+ * @Date: 2019-11-02 13:42:28
+ * @LastEditTime: 2019-11-02 13:58:16
+ * @LastEditors: winki
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加载中动画</title>
+</head>
+<body>
+    <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>
+<style>
+/* 基础样式模版编写 */
+div{
+    display: flex;/* flex弹性布局 */
+    align-items: center;/* 垂直居中 */
+    justify-content: space-between;/* 两端对齐 */
+    width:2em;/* 设置宽度 */
+}
+span{
+    width:0.3em;
+    height: 1em;
+    background: red;
+}
+/* 单独观察一个空的dom元素 */
+@keyframes grow {
+    0%,
+    100% {
+        transform: scale3d(1,1,1);
+    }
+    50% {
+        transform:scale3d(1,2,1);
+    }
+}
+div span:nth-of-type(1){
+    animation: grow 1s 0s ease-in-out infinite;
+}
+div span:nth-of-type(2){
+    animation: grow 1s 0.15s ease-in-out infinite;
+}
+div span:nth-of-type(3){
+    animation: grow 1s 0.3s ease-in-out infinite;
+}
+div span:nth-of-type(4){
+    animation: grow 1s 0.45s ease-in-out infinite;
+}
+</style>
