@@ -1,0 +1,3 @@
+<!--miniprogram/pages/scan/scan.wxml-->
+<text>miniprogram/pages/scan/scan.wxml</text>
+<van-button type='primary' bind:click='scanCode'>扫码加书</van-button>
